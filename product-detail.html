@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor Atelier | Product Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-100 text-slate-800">
+    <header class="bg-slate-900 text-stone-100 sticky top-0 z-20 shadow-md">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="index.html" class="text-xl font-semibold tracking-[0.2em]">NOOR ATELIER</a>
+        <button id="menu-toggle" class="md:hidden border border-amber-500 text-amber-400 px-3 py-1 rounded" aria-label="Toggle menu">
+          Menu
+        </button>
+        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider">
+          <li><a href="index.html" class="hover:text-amber-300 transition">Home</a></li>
+          <li><a href="products.html" class="hover:text-amber-300 transition">Products</a></li>
+          <li><a href="about.html" class="hover:text-amber-300 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-amber-300 transition">Contact Us</a></li>
+        </ul>
+      </nav>
+      <ul id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-sm uppercase tracking-wider">
+        <li><a href="index.html" class="block hover:text-amber-300 transition">Home</a></li>
+        <li><a href="products.html" class="block hover:text-amber-300 transition">Products</a></li>
+        <li><a href="about.html" class="block hover:text-amber-300 transition">About Us</a></li>
+        <li><a href="contact.html" class="block hover:text-amber-300 transition">Contact Us</a></li>
+      </ul>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-14">
+      <section id="product-container" class="bg-white rounded-2xl shadow p-6 md:p-10"></section>
+    </main>
+
+    <footer class="bg-slate-950 text-stone-300 mt-12">
+      <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-3 text-sm">
+        <p>Copyright <span id="year"></span> Noor Atelier. All rights reserved.</p>
+        <p class="text-amber-400">Lahore, Pakistan</p>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        const product = window.products.find(function (item) {
+          return item.id === id;
+        });
+
+        const container = document.getElementById("product-container");
+
+        if (!product) {
+          container.innerHTML = `
+            <div class="text-center py-14">
+              <h1 class="text-3xl font-semibold text-slate-900">Product not found</h1>
+              <p class="mt-3 text-slate-600">Please return to our products page and choose a valid fragrance.</p>
+              <a href="products.html" class="inline-block mt-6 bg-slate-900 text-stone-100 px-5 py-2 rounded hover:bg-amber-500 hover:text-slate-900 transition">Back to Products</a>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = `
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+            <img src="${product.imageSrc}" alt="${product.name}" class="rounded-xl w-full h-80 md:h-[32rem] object-cover" />
+            <div>
+              <h1 class="text-4xl font-semibold text-slate-900">${product.name}</h1>
+              <p class="text-2xl text-amber-700 mt-3 font-medium">PKR ${product.price.toLocaleString()}</p>
+              <p class="mt-5 text-slate-600 leading-relaxed">${product.fullDescription}</p>
+
+              <div class="mt-6 space-y-2 bg-stone-100 rounded-lg p-4">
+                <p><span class="font-semibold text-slate-900">Top:</span> ${product.notes.top}</p>
+                <p><span class="font-semibold text-slate-900">Middle:</span> ${product.notes.middle}</p>
+                <p><span class="font-semibold text-slate-900">Base:</span> ${product.notes.base}</p>
+                <p><span class="font-semibold text-slate-900">Size:</span> ${product.size}</p>
+              </div>
+
+              <button id="add-to-cart" class="mt-7 bg-slate-900 text-stone-100 px-6 py-3 rounded hover:bg-amber-500 hover:text-slate-900 transition">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        `;
+
+        document.getElementById("add-to-cart").addEventListener("click", function () {
+          alert("Coming soon!");
+        });
+      });
+    </script>
+  </body>
+</html>

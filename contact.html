@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor Atelier | Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-100 text-slate-800">
+    <header class="bg-slate-900 text-stone-100 sticky top-0 z-20 shadow-md">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="index.html" class="text-xl font-semibold tracking-[0.2em]">NOOR ATELIER</a>
+        <button id="menu-toggle" class="md:hidden border border-amber-500 text-amber-400 px-3 py-1 rounded" aria-label="Toggle menu">
+          Menu
+        </button>
+        <ul class="hidden md:flex gap-6 text-sm uppercase tracking-wider">
+          <li><a href="index.html" class="hover:text-amber-300 transition">Home</a></li>
+          <li><a href="products.html" class="hover:text-amber-300 transition">Products</a></li>
+          <li><a href="about.html" class="hover:text-amber-300 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-amber-300 transition">Contact Us</a></li>
+        </ul>
+      </nav>
+      <ul id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-sm uppercase tracking-wider">
+        <li><a href="index.html" class="block hover:text-amber-300 transition">Home</a></li>
+        <li><a href="products.html" class="block hover:text-amber-300 transition">Products</a></li>
+        <li><a href="about.html" class="block hover:text-amber-300 transition">About Us</a></li>
+        <li><a href="contact.html" class="block hover:text-amber-300 transition">Contact Us</a></li>
+      </ul>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-14">
+      <h1 class="text-4xl font-semibold text-slate-900">Contact Us</h1>
+      <p class="mt-3 text-slate-600">Questions, suggestions, or collaboration ideas? Send us a message.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 mt-10">
+        <section class="bg-white rounded-2xl shadow p-6 md:p-8">
+          <h2 class="text-2xl font-semibold text-slate-900">Send a Message</h2>
+          <form id="contact-form" class="mt-5 space-y-4">
+            <div>
+              <label for="name" class="block text-sm text-slate-700">Name</label>
+              <input id="name" type="text" class="mt-1 w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400" required />
+            </div>
+            <div>
+              <label for="email" class="block text-sm text-slate-700">Email</label>
+              <input id="email" type="email" class="mt-1 w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400" required />
+            </div>
+            <div>
+              <label for="subject" class="block text-sm text-slate-700">Subject</label>
+              <input id="subject" type="text" class="mt-1 w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400" required />
+            </div>
+            <div>
+              <label for="message" class="block text-sm text-slate-700">Message</label>
+              <textarea id="message" rows="5" class="mt-1 w-full border border-slate-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-400" required></textarea>
+            </div>
+            <button type="submit" class="bg-slate-900 text-stone-100 px-5 py-2 rounded hover:bg-amber-500 hover:text-slate-900 transition">
+              Submit
+            </button>
+          </form>
+        </section>
+
+        <section class="bg-slate-900 text-stone-100 rounded-2xl shadow p-6 md:p-8">
+          <h2 class="text-2xl font-semibold">Visit or Reach Out</h2>
+          <p class="mt-5 text-stone-300">Noor Atelier Studio, 14-B Garden Arcade, Gulberg III, Lahore</p>
+          <p class="mt-3">Email: <span class="text-amber-300">hello@nooratelier.pk</span></p>
+          <p class="mt-2">Phone: <span class="text-amber-300">+92 (42) 3588-1290</span></p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-slate-950 text-stone-300 mt-12">
+      <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-3 text-sm">
+        <p>Copyright <span id="year"></span> Noor Atelier. All rights reserved.</p>
+        <p class="text-amber-400">Lahore, Pakistan</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.getElementById("contact-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Message received! We'll be in touch.");
+      });
+    </script>
+  </body>
+</html>

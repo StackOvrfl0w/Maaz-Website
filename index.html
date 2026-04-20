@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor Atelier | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-stone-100 text-slate-800">
+    <header class="bg-slate-900 text-stone-100 sticky top-0 z-20 shadow-md">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="index.html" class="text-xl font-semibold tracking-[0.2em]">NOOR ATELIER</a>
+        <button id="menu-toggle" class="md:hidden border border-amber-500 text-amber-400 px-3 py-1 rounded" aria-label="Toggle menu">
+          Menu
+        </button>
+        <ul id="menu" class="hidden md:flex gap-6 text-sm uppercase tracking-wider">
+          <li><a href="index.html" class="hover:text-amber-300 transition">Home</a></li>
+          <li><a href="products.html" class="hover:text-amber-300 transition">Products</a></li>
+          <li><a href="about.html" class="hover:text-amber-300 transition">About Us</a></li>
+          <li><a href="contact.html" class="hover:text-amber-300 transition">Contact Us</a></li>
+        </ul>
+      </nav>
+      <ul id="mobile-menu" class="md:hidden hidden px-4 pb-4 space-y-2 text-sm uppercase tracking-wider">
+        <li><a href="index.html" class="block hover:text-amber-300 transition">Home</a></li>
+        <li><a href="products.html" class="block hover:text-amber-300 transition">Products</a></li>
+        <li><a href="about.html" class="block hover:text-amber-300 transition">About Us</a></li>
+        <li><a href="contact.html" class="block hover:text-amber-300 transition">Contact Us</a></li>
+      </ul>
+    </header>
+
+    <main>
+      <section class="bg-slate-900 text-stone-100">
+        <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-amber-400 uppercase tracking-[0.35em] text-xs">Crafted In Small Batches</p>
+            <h1 class="text-4xl md:text-5xl font-semibold mt-4 leading-tight">Perfumes made for quiet confidence.</h1>
+            <p class="mt-6 text-stone-300 leading-relaxed">
+              Noor Atelier is a student-led perfume label inspired by old Lahore evenings, library sketches, and the ritual of choosing a scent that feels like your own story.
+            </p>
+            <a href="products.html" class="inline-block mt-8 bg-amber-500 text-slate-900 font-medium px-6 py-3 rounded hover:bg-amber-400 transition">
+              Explore Collection
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-br from-amber-400/20 to-transparent rounded-3xl"></div>
+            <img
+              src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&w=1200&q=80"
+              alt="Elegant perfume bottle"
+              class="relative rounded-3xl shadow-2xl w-full object-cover h-80 md:h-[28rem]"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-semibold text-slate-900">Why Noor Atelier</h2>
+        <div class="grid md:grid-cols-3 gap-6 mt-8">
+          <article class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
+            <h3 class="text-xl font-medium text-slate-900">Small Scale Production</h3>
+            <p class="mt-3 text-slate-600">We produce limited bottles to keep quality high and formulas consistent.</p>
+          </article>
+          <article class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
+            <h3 class="text-xl font-medium text-slate-900">Thoughtful Compositions</h3>
+            <p class="mt-3 text-slate-600">Each fragrance is built with clear top, heart, and base notes for balanced wear.</p>
+          </article>
+          <article class="bg-white rounded-xl p-6 shadow hover:shadow-lg transition">
+            <h3 class="text-xl font-medium text-slate-900">Community First</h3>
+            <p class="mt-3 text-slate-600">Our first supporters are classmates, artists, and local creatives who shaped the brand.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-slate-950 text-stone-300 mt-12">
+      <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between gap-3 text-sm">
+        <p>Copyright <span id="year"></span> Noor Atelier. All rights reserved.</p>
+        <p class="text-amber-400">Lahore, Pakistan</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuToggle.addEventListener("click", function () {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
